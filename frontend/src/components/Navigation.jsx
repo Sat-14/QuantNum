@@ -21,6 +21,12 @@ const Navigation = ({ onContactClick }) => {
               Events
             </button>
             <button 
+              onClick={() => scrollToSection('Announces')} 
+              className="text-gray-700 hover:text-pink-500 transition-colors cursor-pointer"
+            >
+              Announcements
+            </button>
+            <button 
               onClick={() => scrollToSection('achievements')} 
               className="text-gray-700 hover:text-pink-500 transition-colors cursor-pointer"
             >
