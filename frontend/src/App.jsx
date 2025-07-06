@@ -7,6 +7,7 @@ import AchievementsSection from './components/AchievementsSection';
 import ResourcesSection from './components/ResourcesSection';
 import TeamSection from './components/TeamSection';
 import Footer from './components/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton';
 //import ContactOverlay from './components/ContactOverlay';
 import TeamMemberOverlay from './components/TeamMemberOverlay';
 import MyComponent from './components/MyComponent';
@@ -249,6 +250,7 @@ export default function App() {
           copiedField={copiedField}
         />
       )}
+      <ScrollToTopButton />
     </div>
   );
 }

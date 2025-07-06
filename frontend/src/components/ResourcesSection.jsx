@@ -7,7 +7,7 @@ const ResourcesSection = () => {
       title: 'Study Materials',
       description: 'Comprehensive notes, problem sets, and solution guides for various mathematical topics.',
       iconBg: 'bg-purple-500',
-      icon: <i class="fa-solid fa-book"></i>,
+      icon: <i className="fa-solid fa-book"></i>,
       buttonColor: 'bg-purple-500 hover:bg-purple-600',
       buttonText: 'Access Materials'
     },
@@ -16,7 +16,7 @@ const ResourcesSection = () => {
       title: 'Math Tools',
       description: 'Collection of mathematical software, calculators, and visualization tools.',
       iconBg: 'bg-red-500',
-      icon: <i class="fa-solid fa-wrench"></i>,
+      icon: <i className="fa-solid fa-wrench"></i>,
       buttonColor: 'bg-red-500 hover:bg-red-600',
       buttonText: 'View Tools'
     },
@@ -25,7 +25,7 @@ const ResourcesSection = () => {
       title: 'Video Lectures',
       description: 'Recorded lectures and tutorials from our workshops and guest speakers.',
       iconBg: 'bg-indigo-500',
-      icon: <i class="fa-solid fa-video"></i>,
+      icon: <i className="fa-solid fa-video"></i>,
       buttonColor: 'bg-indigo-500 hover:bg-indigo-600',
       buttonText: 'Watch Videos'
     }
