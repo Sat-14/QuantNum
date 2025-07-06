@@ -7,7 +7,7 @@ const ResourcesSection = () => {
       title: 'Study Materials',
       description: 'Comprehensive notes, problem sets, and solution guides for various mathematical topics.',
       iconBg: 'bg-purple-500',
-      icon: '📖',
+      icon: <i class="fa-solid fa-book"></i>,
       buttonColor: 'bg-purple-500 hover:bg-purple-600',
       buttonText: 'Access Materials'
     },
@@ -16,7 +16,7 @@ const ResourcesSection = () => {
       title: 'Math Tools',
       description: 'Collection of mathematical software, calculators, and visualization tools.',
       iconBg: 'bg-red-500',
-      icon: '🔧',
+      icon: <i class="fa-solid fa-wrench"></i>,
       buttonColor: 'bg-red-500 hover:bg-red-600',
       buttonText: 'View Tools'
     },
@@ -25,7 +25,7 @@ const ResourcesSection = () => {
       title: 'Video Lectures',
       description: 'Recorded lectures and tutorials from our workshops and guest speakers.',
       iconBg: 'bg-indigo-500',
-      icon: '🎥',
+      icon: <i class="fa-solid fa-video"></i>,
       buttonColor: 'bg-indigo-500 hover:bg-indigo-600',
       buttonText: 'Watch Videos'
     }
@@ -45,7 +45,7 @@ const ResourcesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {resources.map((resource) => (
-            <div key={resource.id} className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/50">
+            <div key={resource.id} className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/5 bg-gradient-to-br from-pink-100 via-white to-blue-50">
               <div className={`w-12 h-12 ${resource.iconBg} rounded-xl flex items-center justify-center mb-6`}>
                 <span className="text-white text-2xl">{resource.icon}</span>
               </div>
