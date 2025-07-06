@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import MyComponent from './components/MyComponent';
 //import ContactOverlay from './components/ContactOverlay';
 import TeamMemberOverlay from './components/TeamMemberOverlay';
-
+import { useNavigate } from 'react-router';
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [showContactOverlay, setShowContactOverlay] = useState(false);
@@ -48,7 +48,7 @@ export default function App() {
       console.error('Failed to copy: ', err);
     }
   };
-
+  const navigate = useNavigate();
   const teamMembers = [
   {
     id: 'president',
@@ -154,7 +154,7 @@ const arr = [
         teamMembers={teamMembers}
         onTeamMemberClick={openTeamMemberOverlay}
       />
-      
+
       <Footer onContactClick={() => setShowContactOverlay(true)} />
 
     {/*  {showContactOverlay && (
@@ -172,6 +172,7 @@ const arr = [
           onCopy={copyToClipboard}
           copiedField={copiedField}
         />
+        
       )}
     </div>
   );
