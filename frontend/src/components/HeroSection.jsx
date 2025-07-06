@@ -16,14 +16,13 @@ const HeroSection = () => {
         </div>
         
         <h1 className="text-6xl md:text-7xl font-bold text-gray-800 mb-6 tracking-tight">
-          <span className="text-pink-500">Quant</span>Num
+          <span style={{color: '#FF5354'}}>Quant</span><span className="text-white">Num</span>
         </h1>
         
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
           Where numbers meet innovation. Exploring the beauty of mathematics through 
           collaborative learning, competitions, and cutting-edge research.
         </p>
-        
         <button 
           onClick={scrollToTeam}
           className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
