@@ -28,7 +28,7 @@ const HeroSection = () => {
           onClick={scrollToTeam}
           className="bg-red-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
         >
-          🚀 Meet Our Team!
+        <i className="fa-solid fa-rocket"></i> Meet Our Team!
         </button>
       </div>
       
