@@ -18,13 +18,32 @@ const Footer = ({ onContactClick }) => {
             </p>
             <div className="flex space-x-4">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer">
-                <span className="text-sm">📧</span>
+                <a
+                  href="https://www.instagram.com/quantnum_iiitp?igsh=cTNsdnh6cjh0eDk2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white text-xl"
+                >
+                <i className="fa-brands fa-instagram"></i>
+                </a>
               </div>
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer">
-                <span className="text-sm">📱</span>
+                <a
+                  href="https://www.linkedin.com/company/quantnum/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white text-xl"
+                >
+                <i className="fa-brands fa-linkedin"></i>
+                </a>
               </div>
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer">
-                <span className="text-sm">🔗</span>
+              <a
+                href="mailto:quantnum@iiitp.ac.in"
+                className="text-white text-xl"
+              >
+              <i className="fa-solid fa-envelope"></i>
+              </a>
               </div>
             </div>
           </div>
@@ -86,7 +105,7 @@ const Footer = ({ onContactClick }) => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">quantnum@iitgoa.ac.in</span>
+                <span className="text-sm">quantnum@iiitp.ac.in</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
