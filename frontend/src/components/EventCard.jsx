@@ -2,7 +2,7 @@ import React from 'react';
 
 const EventCard = ({ event }) => {
   return (
-    <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/50 bg-gradient-to-br from-pink-100 via-white to-blue-50">
+    <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/50">
       <div className={`w-12 h-12 ${event.iconBg} rounded-xl flex items-center justify-center mb-6`}>
         {event.icon}
       </div>
