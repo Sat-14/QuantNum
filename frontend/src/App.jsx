@@ -123,46 +123,39 @@ export default function App() {
   };
 
   const teamMembers = [
-    {
-      id: 'president',
-      name: 'Rahul Sharma',
-      position: 'President',
-      initials: 'RS',
-      gradient: 'from-red-500 to-red-700',
-      description: 'Mathematics & Data Science enthusiast with expertise in advanced mathematical concepts and problem-solving.',
-      bio: 'Passionate about exploring diverse realms and technological fields related to mathematical discovery and quantum research.',
-      motto: 'Mathematics is the language with which God has written the universe.',
-      email: 'president@quantnum.ac.in',
-      phone: '+91 987 654 3210',
-      linkedin: 'linkedin.com/in/rahulsharma'
-    },
-    {
-      id: 'vicepresident',
-      name: 'Priya Patel',
-      position: 'Vice President',
-      initials: 'PP',
-      gradient: 'from-gray-400 to-gray-600',
-      description: 'Passionate mathematics researcher with deep knowledge in theoretical and applied mathematics.',
-      bio: 'Specializing in the future of mathematical algorithms, theory and practical applications in technology.',
-      motto: 'In mathematics, you don\'t understand things. You just get used to them.',
-      email: 'vicepresident@quantnum.ac.in',
-      phone: '+91 876 543 2109',
-      linkedin: 'linkedin.com/in/priyapatel'
-    },
-    {
-      id: 'secretary',
-      name: 'Arjun Singh',
-      position: 'Secretary',
-      initials: 'AS',
-      gradient: 'from-red-400 to-gray-500',
-      description: 'Expert in Pure Mathematics with focus on the power of collaborative learning and knowledge sharing.',
-      bio: 'Committed to excellence and organizational innovation. Dedicated to the advancement of mathematical excellence.',
-      motto: 'Pure mathematics is, in its way, the poetry of logical ideas.',
-      email: 'secretary@quantnum.ac.in',
-      phone: '+91 765 432 1098',
-      linkedin: 'linkedin.com/in/arjunsingh'
-    }
-  ];
+
+  {
+    id: 'president',
+    name: 'Rahul Sharma',
+    position: 'President',
+    initials: 'RS',
+    gradient: 'from-red-400 to-red-600',
+    glowGradient: 'from-red-500 to-red-600',
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop', // Replace with actual image URL
+    description: 'Leading QuantNum with passion for mathematical excellence. Specializes in advanced calculus and number theory. Currently researching applications of quantum mathematics in computational algorithms.'
+  },
+  {
+    id: 'vicepresident',
+    name: 'Priya Patel',
+    position: 'Vice President',
+    initials: 'PP',
+    gradient: 'from-gray-600 to-gray-800',
+    glowGradient: 'from-purple-500 to-blue-500',
+    imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop', // Replace with actual image URL
+    description: 'Passionate about making mathematics accessible to all. Expert in statistical analysis and machine learning algorithms. Organizes weekly problem-solving sessions and mentors junior members.'
+  },
+  {
+    id: 'secretary',
+    name: 'Arjun Singh',
+    position: 'Secretary',
+    initials: 'AS',
+    gradient: 'from-red-600 to-gray-800',
+    glowGradient: 'from-green-500 to-blue-500',
+    imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop', // Replace with actual image URL
+    description: 'Manages club operations with mathematical precision. Specializes in discrete mathematics and cryptography. Coordinates with faculty advisors and maintains our resource library.'
+  }
+];
+
 
   const openTeamMemberOverlay = (member) => {
     setSelectedTeamMember(member);
@@ -175,19 +168,20 @@ export default function App() {
   };
 
   const getBackgroundClass = () => {
-    switch (activeSection) {
-      case 'hero':
-        return 'bg-gradient-to-br from-black via-gray-900 to-red-950';
-      case 'events':
-        return 'bg-gradient-to-br from-gray-900 via-black to-red-900';
-      case 'team':
-        return 'bg-gradient-to-br from-red-950 via-black to-gray-900';
-      case 'footer':
-        return 'bg-gradient-to-br from-black via-red-950 to-gray-900';
-      default:
-        return 'bg-gradient-to-br from-black via-gray-900 to-red-950';
-    }
-  };
+
+  switch (activeSection) {
+    case 'hero':
+      return 'bg-gradient-to-br from-black via-gray-900 to-black';
+    case 'events':
+      return 'bg-gradient-to-br from-gray-900 via-black to-gray-900';
+    case 'team':
+      return 'bg-gradient-to-br from-black via-gray-900 to-black';
+    case 'footer':
+      return 'bg-gradient-to-br from-gray-900 via-black to-gray-900';
+    default:
+      return 'bg-gradient-to-br from-black via-gray-900 to-black';
+  }
+};
 
   return (
     <div className={`min-h-screen transition-all duration-1000 ease-in-out ${getBackgroundClass()}`}>
@@ -228,20 +222,12 @@ export default function App() {
         <ResourcesSection />
       </AnimatedSection>
       
-      <AnimatedSection direction="up" delay={200}>
-        <TeamSection 
-          teamMembers={teamMembers}
-          onTeamMemberClick={openTeamMemberOverlay}
-        />
-        <div className="flex justify-center px-4 pb-4">
-          <button
-            onClick={() => navigate('/team')}
-            className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-red-500/30 border border-red-500/30"
-          >
-            Go to Full Team →
-          </button>
-        </div>
-      </AnimatedSection>
+
+      <TeamSection
+       id="team"                     // ← anchor lives here, nowhere else
+        teamMembers={teamMembers}
+        onTeamMemberClick={openTeamMemberOverlay}
+      />
       
       <AnimatedSection direction="up" delay={100}>
         <Footer onContactClick={() => setShowContactOverlay(true)} />

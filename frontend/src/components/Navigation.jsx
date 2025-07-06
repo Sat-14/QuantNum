@@ -1,3 +1,5 @@
+import React from 'react';
+import Logo from './Logo';
 export default Navigation = ({ onContactClick, activeSection }) => {
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -11,7 +13,7 @@ export default Navigation = ({ onContactClick, activeSection }) => {
     }`;
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+    <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-gray-800">
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
@@ -32,6 +34,9 @@ export default Navigation = ({ onContactClick, activeSection }) => {
               Resources
             </button>
             <button onClick={onContactClick} className={linkClasses('footer')}>
+
+          <Logo showText={true} className="w-10 h-10" />
+         
               Contact
             </button>
           </div>
@@ -40,3 +45,4 @@ export default Navigation = ({ onContactClick, activeSection }) => {
     </nav>
   );
 };
+
