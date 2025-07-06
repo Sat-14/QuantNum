@@ -11,8 +11,11 @@ const Navigation = ({ onContactClick }) => {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-black rounded"></div>
-            <span className="font-bold text-xl">QuantNum</span>
-          </div>
+            <span className="font-bold text-xl">
+              <span style={{color:'#FF5354'}}>Quant</span>
+              <span className="text-white">Num</span>
+            </span>
+            </div>
           <div className="hidden md:flex space-x-8">
             <button 
               onClick={() => scrollToSection('events')} 
