@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
@@ -8,7 +8,79 @@ import ResourcesSection from './components/ResourcesSection';
 import TeamSection from './components/TeamSection';
 import Footer from './components/Footer';
 //import ContactOverlay from './components/ContactOverlay';
-//import TeamMemberOverlay from './components/TeamMemberOverlay';
+import TeamMemberOverlay from './components/TeamMemberOverlay';
+import MyComponent from './components/MyComponent';
+import { useNavigate } from 'react-router';
+
+// Hook for intersection observer
+const useIntersectionObserver = (threshold = 0.1) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [threshold]);
+
+  return [ref, isVisible];
+};
+
+// Animation wrapper component
+const AnimatedSection = ({ 
+  children, 
+  direction = 'up', 
+  delay = 0, 
+  duration = 'duration-1000',
+  className = '' 
+}) => {
+  const [ref, isVisible] = useIntersectionObserver(0.1);
+  
+  const getInitialTransform = () => {
+    switch (direction) {
+      case 'up': return 'translate-y-20';
+      case 'down': return '-translate-y-20';
+      case 'left': return 'translate-x-20';
+      case 'right': return '-translate-x-20';
+      case 'scale': return 'scale-95';
+      default: return 'translate-y-20';
+    }
+  };
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all ${duration} ease-out ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div
+        className={`transform transition-all ${duration} ease-out ${
+          isVisible 
+            ? 'translate-y-0 translate-x-0 scale-100 opacity-100' 
+            : `${getInitialTransform()} opacity-0`
+        }`}
+        style={{ transitionDelay: `${delay}ms` }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -16,10 +88,12 @@ export default function App() {
   const [showTeamMemberOverlay, setShowTeamMemberOverlay] = useState(false);
   const [selectedTeamMember, setSelectedTeamMember] = useState(null);
   const [copiedField, setCopiedField] = useState('');
+  const arr = ['Director announces the launch of QuantNum', 'Join us in our journey to explore the universe of mathematics', 'Empowering minds through mathematical discovery'];
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'events', 'team', 'footer'];
+      const sections = ['hero', 'Announces', 'events', 'achievements', 'resources', 'team', 'footer'];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const section of sections) {
@@ -49,6 +123,7 @@ export default function App() {
   };
 
   const teamMembers = [
+
   {
     id: 'president',
     name: 'Rahul Sharma',
@@ -81,6 +156,7 @@ export default function App() {
   }
 ];
 
+
   const openTeamMemberOverlay = (member) => {
     setSelectedTeamMember(member);
     setShowTeamMemberOverlay(true);
@@ -92,6 +168,7 @@ export default function App() {
   };
 
   const getBackgroundClass = () => {
+
   switch (activeSection) {
     case 'hero':
       return 'bg-gradient-to-br from-black via-gray-900 to-black';
@@ -108,25 +185,55 @@ export default function App() {
 
   return (
     <div className={`min-h-screen transition-all duration-1000 ease-in-out ${getBackgroundClass()}`}>
-      <Navigation onContactClick={() => setShowContactOverlay(true)} />
+      <Navigation onContactClick={() => setShowContactOverlay(true)} activeSection={activeSection}/>
       
-      <HeroSection />
+      <AnimatedSection direction="up" delay={200}>
+        <HeroSection />
+        <section id="Announces" className="py-20">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-red-500 to-white bg-clip-text text-transparent">
+                  📢 Announcements
+                </span>
+              </h2>
+            </div>
+            
+            <div className="bg-black/80 backdrop-blur-sm rounded-xl p-8 shadow-2xl border border-red-500/30 shadow-red-500/20">
+              <div className="text-center text-red-500">
+                <MyComponent myarr={arr}/>
+              </div>
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection direction="up" delay={100}>
+      <section id="events" className="py-20">
+        <EventsSection />
+      </section>
+      </AnimatedSection>
       
-      <EventsSection />
+      <AnimatedSection direction="up" delay={150}>
+        <AchievementsSection />
+      </AnimatedSection>
       
-      <AchievementsSection />
+      <AnimatedSection direction="up" delay={100}>
+        <ResourcesSection />
+      </AnimatedSection>
       
-      <ResourcesSection />
-      
+
       <TeamSection
        id="team"                     // ← anchor lives here, nowhere else
         teamMembers={teamMembers}
         onTeamMemberClick={openTeamMemberOverlay}
       />
       
-      <Footer onContactClick={() => setShowContactOverlay(true)} />
+      <AnimatedSection direction="up" delay={100}>
+        <Footer onContactClick={() => setShowContactOverlay(true)} />
+      </AnimatedSection>
 
-    {/*  {showContactOverlay && (
+      {/*  {showContactOverlay && (
         <ContactOverlay 
           onClose={() => setShowContactOverlay(false)}
           onCopy={copyToClipboard}
@@ -134,14 +241,14 @@ export default function App() {
         />
       )}*/}
 
-      {/*{showTeamMemberOverlay && selectedTeamMember && (
+      {showTeamMemberOverlay && selectedTeamMember && (
         <TeamMemberOverlay 
           member={selectedTeamMember}
           onClose={closeTeamMemberOverlay}
           onCopy={copyToClipboard}
           copiedField={copiedField}
         />
-      )}*/}
+      )}
     </div>
   );
 }

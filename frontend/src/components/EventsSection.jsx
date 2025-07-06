@@ -49,8 +49,8 @@ const EventsSection = () => {
     <section id="events" className="min-h-screen py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-gray-800 mb-6">
-            Our <span className="text-pink-500">Events</span>
+          <h2 className="text-5xl font-bold text-red-800 mb-6">
+            Our <span className="text-gray-500">Events</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             From workshops to competitions, we organize events that 
