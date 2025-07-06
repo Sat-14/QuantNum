@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import Logo from './Logo';
 
 const HeroSection = () => {
   const scrollToTeam = () => {
@@ -9,29 +10,35 @@ const HeroSection = () => {
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
       <div className="max-w-4xl mx-auto">
-        <div className="mb-6">
-          <span className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium">
-            ✨ Math meets Innovation at IIIT Pune
-          </span>
+        {/* Large Logo */}
+        <div className="mb-8">
+          <Logo className="w-32 h-32 mx-auto mb-6" />
         </div>
         
-        <h1 className="text-6xl md:text-7xl font-bold text-gray-800 mb-6 tracking-tight">
-          <span style={{color: '#FF5354'}}>Quant</span><span className="text-white">Num</span>
+        <h1 className="text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+          <span className="text-red-500">Quant</span>
+          <span className="text-white">Num</span>
         </h1>
         
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Where numbers meet innovation. Exploring the beauty of mathematics through 
-          collaborative learning, competitions, and cutting-edge research.
+        <p className="text-lg text-gray-400 mb-4 tracking-wider uppercase">
+          Eternal Truths. Whispered in the language of numbers
         </p>
+        
+        <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Where mathematics meets innovation. IIIT Pune's premier mathematics club 
+          exploring the infinite possibilities of numbers through collaborative 
+          learning and cutting-edge research.
+        </p>
+        
         <button 
           onClick={scrollToTeam}
-          className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
+          className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 cursor-pointer"
         >
-        <i className="fa-solid fa-rocket"></i> Meet Our Team!
+          🚀 Meet Our Team!
         </button>
       </div>
       
-      <ChevronDown className="absolute bottom-8 w-6 h-6 text-gray-400 animate-bounce" />
+      <ChevronDown className="absolute bottom-8 w-6 h-6 text-gray-600 animate-bounce" />
     </section>
   );
 };
