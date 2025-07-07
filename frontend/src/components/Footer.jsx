@@ -108,7 +108,7 @@ const Footer = ({ onContactClick }) => {
     className="flex items-center space-x-2 hover:text-blue-800"
   >
     <PhoneIcon className="w-5 h-5" />
-    <span>+91 83XXX </span>
+    <span>+91 83XXX XXXXX</span>
   </a>
 
   {/* Email */}
