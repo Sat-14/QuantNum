@@ -121,7 +121,7 @@ const Footer = ({ onContactClick }) => {
   </a>
   {/* Location */}
   <a 
-    href="https://maps.google.com/?q=IIIT Pune" 
+    href="https://maps.app.goo.gl/d9tkhCgrH9WL8wTw5" 
     target="_blank" 
     rel="noopener noreferrer" 
     className="flex items-center space-x-2 hover:text-blue-800"
