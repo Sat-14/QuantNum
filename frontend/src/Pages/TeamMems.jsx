@@ -260,20 +260,20 @@ const teamMembers = [
   };
 
   const getBackgroundClass = () => {
-    switch (activeSection) {
-      case 'hero':
-        return 'bg-gradient-to-br from-pink-100 via-white to-blue-50';
-      case 'events':
-        return 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-100';
-      case 'team':
-        return 'bg-gradient-to-br from-purple-100 via-pink-50 to-red-50';
-      case 'footer':
-        return 'bg-gradient-to-br from-red-50 via-pink-100 to-purple-100';
-      default:
-        return 'bg-gradient-to-br from-pink-100 via-white to-blue-50';
-    }
-  };
 
+  switch (activeSection) {
+    case 'hero':
+      return 'bg-gradient-to-br from-black via-gray-900 to-black';
+    case 'events':
+      return 'bg-gradient-to-br from-gray-900 via-black to-gray-900';
+    case 'team':
+      return 'bg-gradient-to-br from-black via-gray-900 to-black';
+    case 'footer':
+      return 'bg-gradient-to-br from-gray-900 via-black to-gray-900';
+    default:
+      return 'bg-gradient-to-br from-black via-gray-900 to-black';
+  }
+};
   return (
     <div className={`min-h-screen pt-20 transition-all duration-1000 ease-in-out ${getBackgroundClass()}`}>
       <Navigation onContactClick={() => setShowContactOverlay(true)} />
