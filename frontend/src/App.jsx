@@ -89,8 +89,6 @@ export default function App() {
   const [showTeamMemberOverlay, setShowTeamMemberOverlay] = useState(false);
   const [selectedTeamMember, setSelectedTeamMember] = useState(null);
   const [copiedField, setCopiedField] = useState('');
-  const arr = ['Director announces the launch of QuantNum', 'Join us in our journey to explore the universe of mathematics', 'Empowering minds through mathematical discovery'];
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -122,7 +120,7 @@ export default function App() {
       console.error('Failed to copy: ', err);
     }
   };
-
+  const navigate = useNavigate();
   const teamMembers = [
 
   {
@@ -134,6 +132,7 @@ export default function App() {
     glowGradient: 'from-red-500 to-red-600',
     imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop', // Replace with actual image URL
     description: 'Leading QuantNum with passion for mathematical excellence. Specializes in advanced calculus and number theory. Currently researching applications of quantum mathematics in computational algorithms.'
+    
   },
   {
     id: 'vicepresident',
@@ -143,7 +142,11 @@ export default function App() {
     gradient: 'from-gray-600 to-gray-800',
     glowGradient: 'from-purple-500 to-blue-500',
     imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop', // Replace with actual image URL
-    description: 'Passionate about making mathematics accessible to all. Expert in statistical analysis and machine learning algorithms. Organizes weekly problem-solving sessions and mentors junior members.'
+    description: 'Passionate about making mathematics accessible to all. Expert in statistical analysis and machine learning algorithms. Organizes weekly problem-solving sessions and mentors junior members.',
+    motto: "In mathematics, you don't understand things. You just get used to them.",
+    email: 'vicepresident@quantnum.ac.in',
+    phone: '+91 876 543 2109',
+    linkedin: 'linkedin.com/in/priyapatel'
   },
   {
     id: 'secretary',
@@ -183,7 +186,14 @@ export default function App() {
       return 'bg-gradient-to-br from-black via-gray-900 to-black';
   }
 };
-
+const arr = [
+  'Welcome to QuantNum! ',
+  'We are a community of math enthusiasts dedicated to exploring the beauty and power of mathematics. ',
+  'Join us for exciting events, workshops, and discussions that delve into the world of numbers and their applications. ',
+  'Whether you are a student, researcher, or simply curious about math, there is a place for you here. ',
+  'Let’s embark on this mathematical journey together! ',
+  'Stay tuned for our upcoming events and announcements. ',
+  'Feel free to reach out to us with any questions or suggestions. ']
   return (
     <div className={`min-h-screen transition-all duration-1000 ease-in-out ${getBackgroundClass()}`}>
       <Navigation onContactClick={() => setShowContactOverlay(true)} activeSection={activeSection}/>

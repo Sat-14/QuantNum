@@ -1,8 +1,11 @@
 import React from 'react';
 import TeamMemberCard from './TeamMemberCard';
-
+import { useNavigate } from 'react-router';
+import { useLocation } from 'react-router';
 // ⚠️ add `id` prop with default undefined
 const TeamSection = ({ id, teamMembers = [], onTeamMemberClick }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
    <section id={id} className="min-h-screen py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -32,6 +35,14 @@ const TeamSection = ({ id, teamMembers = [], onTeamMemberClick }) => {
           <p className="text-gray-400 mb-4">
             Interested in joining our team?
           </p>
+          {location.pathname === '/' && (
+            <button
+              className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full transition-colors duration-300"
+              onClick={() => navigate('/team')}
+            >
+              🚀 Meet the rest of our team!
+            </button>
+          )}
           <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full transition-colors duration-300">
             Apply Now
           </button>
