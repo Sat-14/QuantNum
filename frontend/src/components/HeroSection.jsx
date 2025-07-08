@@ -10,6 +10,7 @@ const HeroSection = () => {
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
       <div className="max-w-4xl mx-auto">
+
         {/* Large Logo */}
         <div className="mb-8">
           <Logo className="w-32 h-32 mx-auto mb-6" />
@@ -32,7 +33,9 @@ const HeroSection = () => {
         
         <button 
           onClick={scrollToTeam}
+
           className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 cursor-pointer"
+
         >
           🚀 Meet Our Team!
         </button>
