@@ -19,7 +19,6 @@ import EventOverlay from './components/EventOverlay';
 const useIntersectionObserver = (threshold = 0.1) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -93,12 +92,12 @@ export default function App() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [selectedTeamMember, setSelectedTeamMember] = useState(null);
   const [copiedField, setCopiedField] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['hero', 'Announces', 'events', 'achievements', 'resources', 'team', 'footer'];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
-
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -110,7 +109,6 @@ export default function App() {
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -124,9 +122,8 @@ export default function App() {
       console.error('Failed to copy: ', err);
     }
   };
-  const navigate = useNavigate();
+  
   const teamMembers = [
-
   {
     id: 'president',
     name: 'Rahul Sharma',
@@ -162,7 +159,7 @@ export default function App() {
     imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop', // Replace with actual image URL
     description: 'Manages club operations with mathematical precision. Specializes in discrete mathematics and cryptography. Coordinates with faculty advisors and maintains our resource library.'
   }
-];
+  ];
 
 const events = [
     {
@@ -228,20 +225,20 @@ const events = [
   };
 
   const getBackgroundClass = () => {
+    switch (activeSection) {
+      case 'hero':
+        return 'bg-gradient-to-br from-black via-gray-900 to-black';
+      case 'events':
+        return 'bg-gradient-to-br from-gray-900 via-black to-gray-900';
+      case 'team':
+        return 'bg-gradient-to-br from-black via-gray-900 to-black';
+      case 'footer':
+        return 'bg-gradient-to-br from-gray-900 via-black to-gray-900';
+      default:
+        return 'bg-gradient-to-br from-black via-gray-900 to-black';
+    }
+  };
 
-  switch (activeSection) {
-    case 'hero':
-      return 'bg-gradient-to-br from-black via-gray-900 to-black';
-    case 'events':
-      return 'bg-gradient-to-br from-gray-900 via-black to-gray-900';
-    case 'team':
-      return 'bg-gradient-to-br from-black via-gray-900 to-black';
-    case 'footer':
-      return 'bg-gradient-to-br from-gray-900 via-black to-gray-900';
-    default:
-      return 'bg-gradient-to-br from-black via-gray-900 to-black';
-  }
-};
 const arr = [
   'Welcome to QuantNum! ',
   'We are a community of math enthusiasts dedicated to exploring the beauty and power of mathematics. ',

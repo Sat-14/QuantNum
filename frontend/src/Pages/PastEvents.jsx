@@ -82,18 +82,7 @@ export default function PastEvents() {
   const [showContactOverlay, setShowContactOverlay] = useState(false);
   const [showEventOverlay, setShowEventOverlay] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [copiedField, setCopiedField] = useState('');
   const navigate = useNavigate();
-
-  const copyToClipboard = async (text, field) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopiedField(field);
-      setTimeout(() => setCopiedField(''), 2000);
-    } catch (err) {
-      console.error('Failed to copy: ', err);
-    }
-  };
 
   const events = [
     {
@@ -124,6 +113,32 @@ export default function PastEvents() {
     },
     {
       id: 3,
+      title: 'Research Symposium',
+      description: 'Annual symposium showcasing cutting-edge mathematical research and innovations.',
+      iconBg: 'bg-green-500',
+      icon: <Calendar className="w-6 h-6 text-white" />,
+      details: [
+        '📅 Date: December 2024',
+        '⏰ Time: Full Day',
+        '📍 Venue: Conference Hall',
+        '🎯 Focus: Applied Mathematics'
+      ]
+    },
+    {
+      id: 4,
+      title: 'Research Symposium',
+      description: 'Annual symposium showcasing cutting-edge mathematical research and innovations.',
+      iconBg: 'bg-green-500',
+      icon: <Calendar className="w-6 h-6 text-white" />,
+      details: [
+        '📅 Date: December 2024',
+        '⏰ Time: Full Day',
+        '📍 Venue: Conference Hall',
+        '🎯 Focus: Applied Mathematics'
+      ]
+    },
+    {
+      id: 5,
       title: 'Research Symposium',
       description: 'Annual symposium showcasing cutting-edge mathematical research and innovations.',
       iconBg: 'bg-green-500',
@@ -191,8 +206,6 @@ export default function PastEvents() {
         <EventOverlay 
           event={selectedEvent}
           onClose={closeEventsOverlay}
-          onCopy={copyToClipboard}
-          copiedField={copiedField}
         />
       )}
       <ScrollToTopButton />
