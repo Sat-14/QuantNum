@@ -45,12 +45,12 @@ const ResourcesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {resources.map((resource) => (
-            <div key={resource.id} className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/5 bg-gradient-to-br from-pink-100 via-white to-blue-50">
-              <div className={`w-12 h-12 ${resource.iconBg} rounded-xl flex items-center justify-center mb-6`}>
+            <div key={resource.id} className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300 transform hover:-translate-y-2 border border-gray-800 group">
+              <div className={`w-12 h-12 ${resource.iconBg} rounded-full flex items-center justify-center mb-6`}>
                 <span className="text-white text-2xl">{resource.icon}</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">{resource.title}</h3>
-              <p className="text-gray-600 mb-4">{resource.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-4">{resource.title}</h3>
+              <p className="text-gray-400 mb-4">{resource.description}</p>
               <button className={`${resource.buttonColor} text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors`}>
                 {resource.buttonText}
               </button>
