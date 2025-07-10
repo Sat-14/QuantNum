@@ -21,7 +21,7 @@ const TeamSection = ({ id, teamMembers = [], onTeamMemberClick }) => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {Array.isArray(teamMembers) &&
-  teamMembers.map((member) => (
+            teamMembers.map((member) => (
             <TeamMemberCard 
               key={member.id} 
               member={member} 
@@ -37,7 +37,7 @@ const TeamSection = ({ id, teamMembers = [], onTeamMemberClick }) => {
           </p>
           {location.pathname === '/' && (
             <button
-              className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full transition-colors duration-300"
+              className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 mr-2 rounded-full transition-colors duration-300"
               onClick={() => navigate('/team')}
             >
               🚀 Meet the rest of our team!

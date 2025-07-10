@@ -10,12 +10,12 @@ export default function Navigation({ onContactClick, activeSection }) {
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
-
+  
   const linkClasses = (id) =>
     `transition-colors cursor-pointer ${
       activeSection === id
         ? 'text-red-600 font-semibold'
-        : 'text-gray-700 hover:text-pink-500'
+        : 'text-gray-400 hover:text-pink-400'
     }`;
 
   // Close dropdown when clicking outside

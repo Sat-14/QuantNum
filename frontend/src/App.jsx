@@ -12,6 +12,8 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import TeamMemberOverlay from './components/TeamMemberOverlay';
 import MyComponent from './components/MyComponent';
 import { useNavigate } from 'react-router';
+import { Calendar, Users } from 'lucide-react';
+import EventOverlay from './components/EventOverlay';
 
 // Hook for intersection observer
 const useIntersectionObserver = (threshold = 0.1) => {
@@ -87,6 +89,8 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [showContactOverlay, setShowContactOverlay] = useState(false);
   const [showTeamMemberOverlay, setShowTeamMemberOverlay] = useState(false);
+  const [showEventsOverlay, setShowEevtsOverlay] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [selectedTeamMember, setSelectedTeamMember] = useState(null);
   const [copiedField, setCopiedField] = useState('');
 
@@ -160,6 +164,48 @@ export default function App() {
   }
 ];
 
+const events = [
+    {
+      id: 1,
+      title: 'Equation 2024',
+      description: 'Annual Math Olympiad mathematics competition featuring calculus, algebra, statistics and combinatorics.',
+      iconBg: 'bg-blue-500',
+      icon: <Calendar className="w-6 h-6 text-white" />,
+      details: [
+        '📅 Date: April 15, 2024',
+        '⏰ Time: 10:00 AM - 4:00 PM',
+        '📍 Venue: IIIT Pune Main Audi',
+        '🏆 Prize Pool: ₹50,000'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Math Workshop',
+      description: 'Interactive workshop on advanced mathematical concepts and problem-solving techniques.',
+      iconBg: 'bg-purple-500',
+      icon: <Users className="w-6 h-6 text-white" />,
+      details: [
+        '📅 Date: Monthly',
+        '⏰ Time: 2:00 PM - 5:00 PM',
+        '📍 Venue: Academic Block',
+        '👥 Capacity: 50 students'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Research Symposium',
+      description: 'Annual symposium showcasing cutting-edge mathematical research and innovations.',
+      iconBg: 'bg-green-500',
+      icon: <Calendar className="w-6 h-6 text-white" />,
+      details: [
+        '📅 Date: December 2024',
+        '⏰ Time: Full Day',
+        '📍 Venue: Conference Hall',
+        '🎯 Focus: Applied Mathematics'
+      ]
+    }
+  ];
+
 
   const openTeamMemberOverlay = (member) => {
     setSelectedTeamMember(member);
@@ -169,6 +215,16 @@ export default function App() {
   const closeTeamMemberOverlay = () => {
     setShowTeamMemberOverlay(false);
     setSelectedTeamMember(null);
+  };
+
+  const openEventsOverlay = (event) => {
+    setSelectedEvent(event);
+    setShowEevtsOverlay(true);
+  };
+
+  const closeEventsOverlay = () => {
+    setShowEevtsOverlay(false);
+    setSelectedEvent(null);
   };
 
   const getBackgroundClass = () => {
@@ -221,7 +277,22 @@ const arr = [
 
       <AnimatedSection direction="up" delay={100}>
       <section id="events" className="py-20">
-        <EventsSection />
+      
+      
+      <EventsSection
+        id="events"
+        events={events}
+        onEventsClick={openEventsOverlay}
+      />
+
+      {showEventsOverlay && selectedEvent && (
+        <EventOverlay 
+          event={selectedEvent}
+          onClose={closeEventsOverlay}
+          onCopy={copyToClipboard}
+          copiedField={copiedField}
+        />
+      )}
       </section>
       </AnimatedSection>
       

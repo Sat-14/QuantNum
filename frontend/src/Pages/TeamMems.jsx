@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-
 import Navigation from '../components/Navigation';
-
 import TeamSection from '../components/TeamSection';
 import Footer from '../components/Footer';
-//import ContactOverlay from './components/ContactOverlay';
 import TeamMemberOverlay from '../components/TeamMemberOverlay';
 import { useNavigate } from 'react-router';
-// Hook for intersection observer
+import ScrollToTopButton from '../components/ScrollToTopButton';
+
+
 const useIntersectionObserver = (threshold = 0.1) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -83,8 +82,8 @@ export default function TeamMembers() {
   const [showTeamMemberOverlay, setShowTeamMemberOverlay] = useState(false);
   const [selectedTeamMember, setSelectedTeamMember] = useState(null);
   const [copiedField, setCopiedField] = useState('');
-  const arr = ['Director announces the launch of QuantNum', 'Join us in our journey to explore the universe of mathematics', 'Empowering minds through mathematical discovery'];
   const navigate = useNavigate();
+  
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['hero', 'events', 'team', 'footer'];
@@ -282,14 +281,12 @@ const teamMembers = [
         <div className="flex justify-start px-4 pt-8">
           <button
             onClick={() => navigate('/')}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            className="px-4 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition"
           >
             ← Back to Home
           </button>
         </div>
       </AnimatedSection>
-      
-
       
       <AnimatedSection direction="up" delay={200}>
         <TeamSection 
@@ -302,14 +299,6 @@ const teamMembers = [
         <Footer onContactClick={() => setShowContactOverlay(true)} />
       </AnimatedSection>
 
-    {/*  {showContactOverlay && (
-        <ContactOverlay 
-          onClose={() => setShowContactOverlay(false)}
-          onCopy={copyToClipboard}
-          copiedField={copiedField}
-        />
-      )}*/}
-
       {showTeamMemberOverlay && selectedTeamMember && (
         <TeamMemberOverlay 
           member={selectedTeamMember}
@@ -318,6 +307,7 @@ const teamMembers = [
           copiedField={copiedField}
         />
       )}
+      <ScrollToTopButton />
     </div>
   );
 }
