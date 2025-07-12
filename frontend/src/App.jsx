@@ -11,9 +11,11 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 //import ContactOverlay from './components/ContactOverlay';
 import TeamMemberOverlay from './components/TeamMemberOverlay';
 import MyComponent from './components/MyComponent';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { Calendar, Users } from 'lucide-react';
 import EventOverlay from './components/EventOverlay';
+
+
 
 // Hook for intersection observer
 const useIntersectionObserver = (threshold = 0.1) => {
@@ -247,6 +249,9 @@ const arr = [
   'Let’s embark on this mathematical journey together! ',
   'Stay tuned for our upcoming events and announcements. ',
   'Feel free to reach out to us with any questions or suggestions. ']
+
+//for linking team member page
+
   return (
     <div className={`min-h-screen transition-all duration-1000 ease-in-out ${getBackgroundClass()}`}>
       <Navigation onContactClick={() => setShowContactOverlay(true)} activeSection={activeSection}/>
@@ -270,6 +275,7 @@ const arr = [
             </div>
           </div>
         </section>
+        
       </AnimatedSection>
 
       <AnimatedSection direction="up" delay={100}>
