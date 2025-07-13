@@ -1,0 +1,107 @@
+.apply-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #000000, #1f2937);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.back-button-container{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.back-button{
+    background-color: #374151;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover{
+    background-color: #4b5563;
+}
+
+
+
+.apply-form-container {
+  width: 450px;
+  margin: 7rem auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.apply-form-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #f87171;
+}
+
+.apply-form .form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.apply-form label{
+    display:block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.apply-form .form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.apply-form .form-group input,
+.apply-form .form-group select,
+.apply-form .form-group textarea {
+  padding: 0.75rem;
+  width : 100%;
+  border: none;
+  border-radius: 0.5rem;
+  background: #1f2937;
+  color: white;
+}
+
+.apply-form .form-group input:focus,
+.apply-form .form-group select:focus,
+.apply-form .form-group textarea:focus {
+  outline: none;
+  border: 2px solid #f87171;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #f87171;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.submit-button:hover {
+  background: #ef4444;
+}
+
+@media (max-width: 600px) {
+  .apply-form-container {
+    width: 90%;
+    margin: 5rem auto;
+  }
+}

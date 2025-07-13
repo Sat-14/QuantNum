@@ -43,7 +43,9 @@ const TeamSection = ({ id, teamMembers = [], onTeamMemberClick }) => {
               🚀 Meet the rest of our team!
             </button>
           )}
-          <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full transition-colors duration-300">
+          <button
+            onClick={() => navigate('/apply')}
+            className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full transition-colors duration-300">
             Apply Now
           </button>
         </div>
