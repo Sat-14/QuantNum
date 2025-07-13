@@ -6,7 +6,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import TeamMembers from './Pages/TeamMems.jsx'
 import PastEvents from './Pages/PastEvents.jsx'
-import QuizSetup from './Pages/QuizSetup.jsx';import ApplyNow from './Pages/ApplyNow.jsx';
+import QuizSetup from './Pages/QuizSetup.jsx';
+import ApplyNow from './Pages/ApplyNow.jsx';
 
 
 createRoot(document.getElementById('root')).render(
