@@ -83,6 +83,10 @@ export default function TeamMembers() {
   const [selectedTeamMember, setSelectedTeamMember] = useState(null);
   const [copiedField, setCopiedField] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
   
   useEffect(() => {
     const handleScroll = () => {
