@@ -1,7 +1,7 @@
 import React from 'react';
-import { X, Calendar, Clock, MapPin, Award, Copy, Check } from 'lucide-react';
+import { X, Calendar, Clock, MapPin, Award } from 'lucide-react';
 
-const EventOverlay = ({ event, onClose, onCopy, copiedField }) => {
+const EventOverlay = ({ event, onClose }) => {
   if (!event) return null;
 
   
@@ -13,8 +13,6 @@ const EventOverlay = ({ event, onClose, onCopy, copiedField }) => {
     if (detail.includes('Participants:')) return <Award className="w-5 h-5 text-red-400" />;
     return null;
   };
-
-  const extractCopyText = (detail) => detail.split(': ')[1] || detail;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-[100]">
@@ -54,8 +52,7 @@ const EventOverlay = ({ event, onClose, onCopy, copiedField }) => {
             {event.details.map((detail, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between bg-gray-700/50 rounded-lg p-3 text-left border border-gray-600 hover:border-red-500 transition-all duration-200 cursor-pointer"
-                onClick={() => onCopy(extractCopyText(detail), detail)}
+                className="flex items-center bg-gray-700/50 rounded-lg p-3 text-left border border-gray-600 hover:border-red-500 transition-all duration-200"
               >
                 <div className="flex items-center">
                   {getDetailIcon(detail)}
@@ -63,21 +60,6 @@ const EventOverlay = ({ event, onClose, onCopy, copiedField }) => {
                     {detail}
                   </span>
                 </div>
-                <button
-                  className="ml-4 text-gray-400 hover:text-red-400 transition-colors flex-shrink-0"
-                  aria-label={`Copy ${detail}`}
-                  title={`Click to copy ${detail}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onCopy(extractCopyText(detail), detail);
-                  }}
-                >
-                  {copiedField === detail ? (
-                    <Check size={20} className="text-green-400" />
-                  ) : (
-                    <Copy size={20} />
-                  )}
-                </button>
               </div>
             ))}
           </div>
