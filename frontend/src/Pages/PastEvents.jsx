@@ -84,6 +84,10 @@ export default function PastEvents() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
+
   const events = [
     {
       id: 1,
