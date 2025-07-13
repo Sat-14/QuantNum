@@ -14,6 +14,9 @@ import MyComponent from './components/MyComponent';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, Users } from 'lucide-react';
 import EventOverlay from './components/EventOverlay';
+import ImageOverlay from './components/ImageOverlay';
+import { Camera, Image} from 'lucide-react';
+import GallerySection from './components/GallerySection';
 
 
 
@@ -94,6 +97,9 @@ export default function App() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [selectedTeamMember, setSelectedTeamMember] = useState(null);
   const [copiedField, setCopiedField] = useState('');
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [showImageOverlay, setShowImageOverlay] = useState(false);
+  const location = window.location;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -205,6 +211,64 @@ const events = [
     }
   ];
 
+  const images = [
+  {
+    id: 1,
+    title: 'Equation 2024 - Opening Ceremony',
+    description: 'Students and faculty gathered for the grand opening of our annual mathematics olympiad.',
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhOy4B-royEmBA2trVcL_m4uhYtxSb9gp1dwtWwWF-aRuiZwhjs13fn1gcwzzrHxb53k&usqp=CAU', // Taj Mahal
+    category: 'Events',
+    date: 'April 15, 2024',
+    iconBg: 'bg-blue-500',
+    icon: <Calendar className="w-6 h-6 text-white" />,
+    details: [
+      '📅 Event: Equation 2024',
+      '📍 Location: IIIT Pune Main Audi',
+      '👥 Participants: 200+ students',
+      '🏆 Competition: Math Olympiad'
+    ]
+  },
+  {
+    id: 2,
+    title: 'Workshop Session',
+    description: 'Interactive problem-solving session during our monthly math workshop.',
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhOy4B-royEmBA2trVcL_m4uhYtxSb9gp1dwtWwWF-aRuiZwhjs13fn1gcwzzrHxb53k&usqp=CAU', // Eiffel Tower
+    category: 'Workshop',
+    date: 'March 10, 2024',
+    iconBg: 'bg-purple-500',
+    icon: <Image className="w-6 h-6 text-white" />,
+    details: [
+      '📅 Event: Monthly Workshop',
+      '📍 Location: Academic Block',
+      '🎯 Focus: Problem Solving',
+      '⏰ Duration: 3 hours'
+    ]
+  },
+  {
+    id: 3,
+    title: 'Research Presentation',
+    description: 'Faculty member presenting cutting-edge research findings at our annual symposium.',
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXhOy4B-royEmBA2trVcL_m4uhYtxSb9gp1dwtWwWF-aRuiZwhjs13fn1gcwzzrHxb53k&usqp=CAU', // Colosseum
+    category: 'Research',
+    date: 'December 5, 2024',
+    iconBg: 'bg-green-500',
+    icon: <Camera className="w-6 h-6 text-white" />,
+    details: [
+      '📅 Event: Research Symposium',
+      '📍 Location: Conference Hall',
+      '🔬 Topic: Applied Mathematics',
+      '👨‍🏫 Speaker: Dr. Smith'
+    ]
+  }]
+    const openImageOverlay = (image) => {
+    setSelectedImage(image);
+    setShowImageOverlay(true);
+  };
+
+  const closeImageOverlay = () => {
+    setShowImageOverlay(false);
+    setSelectedImage(null);
+  };
 
   const openTeamMemberOverlay = (member) => {
     setSelectedTeamMember(member);
@@ -292,12 +356,23 @@ const arr = [
         <EventOverlay 
           event={selectedEvent}
           onClose={closeEventsOverlay}
-          onCopy={copyToClipboard}
-          copiedField={copiedField}
         />
       )}
       </section>
       </AnimatedSection>
+       <AnimatedSection direction="up" delay={200}>
+        <GallerySection 
+          images={images}
+          onImageClick={openImageOverlay}
+        />
+      </AnimatedSection>
+
+      {showImageOverlay && selectedImage && (
+        <ImageOverlay 
+          image={selectedImage}
+          onClose={closeImageOverlay}
+        />
+      )}
       
       <AnimatedSection direction="up" delay={150}>
         <AchievementsSection />
