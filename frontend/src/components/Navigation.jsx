@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Logo from './Logo';
 import { Menu, X, ChevronDown, Mail, Phone, Instagram, Linkedin } from 'lucide-react';
-
+import { useNavigate } from 'react-router-dom';
 export default function Navigation({ onContactClick, activeSection }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
@@ -10,7 +10,7 @@ export default function Navigation({ onContactClick, activeSection }) {
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
-  
+  const navigate = useNavigate();
   const linkClasses = (id) =>
     `transition-colors cursor-pointer ${
       activeSection === id
@@ -113,6 +113,9 @@ export default function Navigation({ onContactClick, activeSection }) {
 
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-8 items-center">
+            <button onClick={() => navigate('/')} className={linkClasses('events')}>
+              Home
+            </button>
             <button onClick={() => scrollToSection('events')} className={linkClasses('events')}>
               Events
             </button>
