@@ -102,41 +102,38 @@ const Footer = ({ onContactClick }) => {
             <div className="space-y-3 text-pink-100">
               <div className="flex items-center space-x-2">
                 <div className="space-y-2 text-white">
-  {/* Phone */}
-  <a 
-    href="tel:+911234567890" 
-    className="flex items-center space-x-2 hover:text-blue-800"
-  >
-    <PhoneIcon className="w-4 h-5" />
-    <span>+91 83XXX XXXXX</span>
-  </a>
+                  {/* Phone */}
+                  <a 
+                    href="tel:+911234567890" 
+                    className="flex items-center space-x-2 hover:text-blue-800"
+                  >
+                    <PhoneIcon className="w-4 h-5" />
+                    <span>+91 83XXX XXXXX</span>
+                  </a>
 
-  {/* Email */}
-  <a 
-    href="mailto:quantnum@iiitp.ac.in" 
-    className="flex items-center space-x-2 hover:text-blue-800"
-  >
-    <EnvelopeIcon className="w-4 h-5" />
-    <span>quantnum@iiitp.ac.in</span>
-  </a>
-  {/* Location */}
-  <a 
-    href="https://maps.app.goo.gl/d9tkhCgrH9WL8wTw5" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="flex items-center space-x-2 hover:text-blue-800"
-  >
-    <MapPinIcon className="w-4 h-5" />
-    <span>IIIT Pune, Maharashtra</span>
-  </a>
-</div>
-
-
+                  {/* Email */}
+                  <a 
+                    href="mailto:quantnum@iiitp.ac.in" 
+                    className="flex items-center space-x-2 hover:text-blue-800"
+                  >
+                    <EnvelopeIcon className="w-4 h-5" />
+                    <span>quantnum@iiitp.ac.in</span>
+                  </a>
+                  {/* Location */}
+                  <a 
+                    href="https://maps.app.goo.gl/d9tkhCgrH9WL8wTw5" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center space-x-2 hover:text-blue-800"
+                  >
+                    <MapPinIcon className="w-4 h-5" />
+                    <span>IIIT Pune, Maharashtra</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
         <div className="border-t border-pink-400/30 mt-12 pt-8 text-center text-pink-100">
           <p>&copy; 2024 QuantNum - IIIT Pune Math Club. All rights reserved.</p>
         </div>
